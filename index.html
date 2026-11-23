@@ -616,6 +616,13 @@
 
   html, body { background: #0D161F; margin: 0; }
   #yip-report-root .yip-footer { flex-wrap: wrap; gap: 10px; }
+  /* HIS SCREENSHOT 11:30 -- the day ledger has ~200px of dead air under every line
+     on a phone. Cause: .yip-action is `flex: 1 1 200px`, and at <=600px the row
+     turns `flex-direction: column`, so that 200px basis stops being a WIDTH and
+     becomes a HEIGHT. Every action grows to 200px tall. */
+  @media (max-width: 600px) {
+    #yip-report-root .yip-action { flex: 0 0 auto; }
+  }
   @media print {
     @page { size: Letter; margin: 14mm 12mm; }
     html, body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
