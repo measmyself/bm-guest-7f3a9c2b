@@ -616,8 +616,13 @@
 
   html, body { background: #0D161F; margin: 0; }
   #yip-report-root .yip-footer { flex-wrap: wrap; gap: 10px; }
-  @media print { @page { size: Letter; margin: 14mm 12mm; }
-    html, body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+  @media print {
+    @page { size: Letter; margin: 14mm 12mm; }
+    html, body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    /* his catch 11:24 -- nothing you can TAP belongs on a fridge page */
+    #yip-report-root .yip-btn-toggle,
+    #yip-report-root .yip-btn-print { display: none !important; }
+  }
 </style></head><body>
 <div id="yip-report-root">
 
